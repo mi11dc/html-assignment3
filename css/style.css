@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800&display=swap');
+
+:root {
+    --primary-color: #00425A;
+    --secondary-color: #D3D3D3;
+    --button-bg: #E3E3E3;
+}
+
+/* General Styles */
+html {
+    font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: auto;
+    background: var(--secondary-color);
+}
+
+a {
+    text-decoration: none;
+}
+
+/* HEADER Section */
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+    background: var(--primary-color);
+    padding: 0 3em;
+}
+
+li {
+    margin: 0 2em;
+    cursor: pointer;
+    color: var(--secondary-color);
+}
+
+.menu-button {
+    border-radius: 25px;
+    padding: 0.5em 1.25em;
+    font-weight: 700;
+    color: var(--primary-color);
+    border: 3px solid var(--primary-color);
+    background-color: var(--button-bg);
+}
+
+.menu-button:hover, :active, :visited {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    background-color: var(--button-bg);
+}
+
+.menu-toggle {
+    display: none;
+}
+
+.menu {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.67em; /* 40px / 24px = 1.67em */
+}
+
+h2 .header-name {
+    text-shadow: 1px 1px 1px var(--secondary-color);
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+.initials {
+    display: none;
+}
+
+.fullname {
+    display: block;
+}
+
+/* Main Section */
+#main {
+    text-align: end;           
+}
+
+.introduction-section {
+    padding: 3em 14em;
+    color: var(--primary-color);
+}
+
+.intro {
+    font-weight: 800;
+    font-size: 2em;
+}
+
+.name {
+    font-size: 2em;
+}
+
+.name-intro {
+    font-size: 1.5em;
+}
+
+.buttons {
+    font-size: 1.25em;
+    padding: 3em 14em;
+    display: grid;
+    gap: 1em;
+    text-align: center;
+    grid-template-columns: repeat(2, auto); /* auto auto */
+    grid-template-rows: repeat(2, auto);
+    grid-template-areas: "button1 button2";
+}
+
+.button1 {
+    grid-area: button1;
+}
+.button2 {
+    grid-area: button2;
+}
+
+.buttons .button {
+    border-radius: 25px;
+    padding: 0.5em 1.25em;
+    font-weight: 700;
+    color: var(--primary-color);
+    border: 3px solid var(--primary-color);
+    background-color: var(--button-bg);
+}
+
+.buttons .button:hover, :active, :visited {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    background-color: var(--button-bg);
+}
+
+.next-button {
+    padding: 3em 10em;
+    transform: rotate(90deg);
+    position: absolute;
+    right: 0;
+    font-size: 1.25em;
+}
+
+.next-button .button {
+    padding: 0.5em;
+    border-radius: 25px;
+    font-weight: 700;
+    color: var(--primary-color);
+    border: 3px solid var(--primary-color);
+    background-color: var(--button-bg);
+}
+
+@media screen and (max-width: 1080px) {
+    li {
+        margin: 0 1.75em;
+    }
+
+    .introduction-section {
+        padding: 3em 10em;
+    }
+
+    .buttons, .next-button {
+        padding: 2em 10em;
+        font-size: 1em;
+    }
+
+    .intro, .name {
+        font-size: 1.75em;
+    }
+    
+    .name-intro, .button {
+        font-size: 1.25em;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    h2 {
+        font-size: 1.25em;
+    }
+
+    li {
+        margin: 0 1.5em;
+    }
+
+    .initials {
+        display: block;
+    }
+
+    .fullname {
+        display: none;
+    }
+
+    .introduction-section {
+        padding: 2em 10em;
+    }
+
+    .buttons, .next-button {
+        padding: 1.5em 10em;
+    }
+
+    .intro, .name {
+        font-size: 1.5em;
+    }
+    
+    .name-intro, .button {
+        font-size: 1em;
+    }
+
+    .buttons {
+        grid-template-areas: none;
+        grid-template-columns: 100%;
+        grid-template-rows: repeat(2, auto)
+    }
+    
+    .button {
+        grid-area: auto;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .menu {
+        flex-direction: column;
+        gap: 1em;
+        padding: 0.5em;
+        background-color: var(--button-bg);
+        display: none;
+    }
+
+    .menu.show-small {
+        display: block;
+        position: absolute;
+        left: 0;
+        width: 100%;
+    }
+
+    h2 {
+        font-size: 1.1em;
+    }
+
+    li {
+        margin: 0.25em 1em;
+        color: var(--primary-color);
+    }
+    
+    .initials {
+        display: none;
+    }
+
+    .fullname {
+        display: block;
+        font-size: 1em;
+    } 
+    
+    .introduction-section {
+        padding: 2em 2em;
+    }
+
+    .buttons, .next-button {
+        padding: 1em 2em;
+    }
+
+    .intro, .name {
+        font-size: 1.25em;
+    }
+    
+    .name-intro, .button {
+        font-size: 1em;
+    }
+}
